@@ -1,4 +1,4 @@
-package eternal.carl.com.eternally.module;
+package eternal.carl.com.eternally.activity;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,22 +8,32 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import eternal.carl.com.eternally.R;
+import eternal.carl.com.eternally.item.TimerItem;
 
 /**
  * Created by Administrator on 2014/9/3.
  */
 public class TimerCardAdapter extends BaseAdapter {
-    private List<TimerCard> data;
+    private List<TimerItem> data = new ArrayList<TimerItem>();
     private Context context;
     private LayoutInflater mInflater;
 
-    public TimerCardAdapter(Context context, List<TimerCard> data) {
+    public TimerCardAdapter(Context context) {
         this.context = context;
-        this.data = data;
         mInflater = LayoutInflater.from(context);
+    }
+
+    public void setTimerList(ArrayList<TimerItem> data) {
+        this.data.clear();
+        for (TimerItem timerItem : data) {
+            timerItem.setIcon(R.drawable.ic_launcher);
+            this.data.add(timerItem);
+        }
+        this.notifyDataSetChanged();
     }
 
     @Override
@@ -57,7 +67,7 @@ public class TimerCardAdapter extends BaseAdapter {
             holder = (ViewHolder) view.getTag();
         }
 
-        TimerCard card = data.get(i);
+        TimerItem card = data.get(i);
         holder.descView.setText(card.getDesc());
         holder.titleView.setText(card.getTitle());
         holder.iconView.setImageResource(card.getIcon());
