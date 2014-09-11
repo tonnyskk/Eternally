@@ -17,5 +17,9 @@ public abstract class BaseModel {
         return this.baseActivity.getIntent();
     }
 
+    public Activity getActivity() {
+        return baseActivity;
+    }
+
     public abstract ResponseStatus doInBackground(String action);
 }

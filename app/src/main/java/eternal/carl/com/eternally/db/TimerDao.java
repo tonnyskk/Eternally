@@ -12,7 +12,13 @@ import eternal.carl.com.eternally.item.TimerItem;
  * Created by Administrator on 2014/9/5.
  */
 public class TimerDao {
-    public TimerDao() {
+    private static TimerDao instance = new TimerDao();
+
+    private TimerDao() {
+    }
+
+    public static TimerDao getInstance() {
+        return instance;
     }
 
     public ArrayList<TimerItem> getItemList() throws Exception {
@@ -56,7 +62,7 @@ public class TimerDao {
         return timerItemList;
     }
 
-    public void saveItem(TimerItem timerItem)  throws Exception{
+    public void saveItem(TimerItem timerItem) throws Exception {
         ContentValues contentValues = new ContentValues();
         contentValues.put(TimerDbHelper.COL_ID, timerItem.getId() <= 0 ? null : timerItem.getId());
         contentValues.put(TimerDbHelper.COL_TITLE, timerItem.getTitle());

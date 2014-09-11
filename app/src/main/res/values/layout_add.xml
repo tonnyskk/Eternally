@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="activity_horizontal_margin">12dp</dimen>
+    <dimen name="activity_vertical_margin">10dp</dimen>
+
+    <dimen name="addItemTitleWidth">50dp</dimen>
+    <dimen name="addItemInputBoxHorizonPadding">5dp</dimen>
+    <dimen name="addItemRowMarginBottom">15dp</dimen>
+
+    <dimen name="addItemTitleFontSize">18sp</dimen>
+    <dimen name="addItemTextFontSize">16sp</dimen>
+
+
+    <dimen name="addButtonMarginTopBottom">10dp</dimen>
+    <dimen name="addButtonHeight">40dp</dimen>
+    <dimen name="addButtonMinWidth">100dp</dimen>
+    <dimen name="addButtonMaxWidth">200dp</dimen>
+    <dimen name="addButtonTextSize">20sp</dimen>
+
+    <color name="addButtonTextColor">#ffffffff</color>
+</resources>

@@ -3,7 +3,7 @@
     package="eternal.carl.com.eternally" >
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
+    <uses-permission android:name="android.permission.VIBRATE"/>
     <application
         android:name=".app.EternalApplication"
         android:allowBackup="true"
@@ -11,13 +11,17 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".activity.EternalActivity"
+            android:name=".module.main.EternalActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".module.add.NewTimerActivity"
+            android:label="@string/title_activity_new_timer" >
         </activity>
     </application>
 

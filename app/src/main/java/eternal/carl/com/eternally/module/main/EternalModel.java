@@ -1,4 +1,4 @@
-package eternal.carl.com.eternally.activity;
+package eternal.carl.com.eternally.module.main;
 
 import java.util.ArrayList;
 
@@ -12,7 +12,6 @@ import eternal.carl.com.eternally.item.TimerItem;
  * Created by Administrator on 2014/9/5.
  */
 public class EternalModel extends BaseModel {
-    private TimerDao timerDao = new TimerDao();
 
     public EternalModel(BaseActivity activity) {
         super(activity);
@@ -25,7 +24,7 @@ public class EternalModel extends BaseModel {
             if (action != null) {
                 switch (EternalActivity.Actions.valueOf(action)) {
                     case loadAllItems:
-                        ArrayList<TimerItem> itemList = timerDao.getItemList();
+                        ArrayList<TimerItem> itemList = TimerDao.getInstance().getItemList();
                         this.getIntent().putParcelableArrayListExtra(EternalActivity.Keys.timerItemList.name(), itemList);
                         break;
                 }

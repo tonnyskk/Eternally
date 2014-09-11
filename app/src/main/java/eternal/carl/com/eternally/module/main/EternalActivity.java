@@ -1,5 +1,6 @@
-package eternal.carl.com.eternally.activity;
+package eternal.carl.com.eternally.module.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,6 +12,7 @@ import eternal.carl.com.eternally.BaseActivity;
 import eternal.carl.com.eternally.BaseModel;
 import eternal.carl.com.eternally.R;
 import eternal.carl.com.eternally.item.TimerItem;
+import eternal.carl.com.eternally.module.add.NewTimerActivity;
 
 
 public class EternalActivity extends BaseActivity {
@@ -32,7 +34,6 @@ public class EternalActivity extends BaseActivity {
         TimerCardAdapter adapter = new TimerCardAdapter(this);
         gridView.setAdapter(adapter);
 
-        this.postAsync(Actions.loadAllItems.name());
     }
 
     @Override
@@ -49,6 +50,10 @@ public class EternalActivity extends BaseActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
+
+            Intent intent = new Intent(this, NewTimerActivity.class);
+            this.startActivity(intent);
+
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -81,5 +86,7 @@ public class EternalActivity extends BaseActivity {
     @Override
     public void onResume() {
         super.onResume();
+
+        this.postAsync(Actions.loadAllItems.name());
     }
 }

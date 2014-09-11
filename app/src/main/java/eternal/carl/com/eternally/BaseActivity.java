@@ -2,11 +2,12 @@ package eternal.carl.com.eternally;
 
 import android.app.Activity;
 import android.os.Looper;
+import android.support.v4.app.FragmentActivity;
 
 /**
  * Created by Administrator on 2014/9/5.
  */
-public abstract class BaseActivity extends Activity {
+public abstract class BaseActivity extends FragmentActivity {
     protected BaseModel model;
     private BaseActivityHelper helper;
 

@@ -4,5 +4,28 @@
     <string name="app_name">Eternally</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_new_timer">添加时刻</string>
+
+
+    <string name="menu_action_new">添加记事</string>
+
+    <string name="button_text_add">添 加</string>
+    <string name="button_text_cancel">取 消</string>
+    <!-- Values for add new timer-->
+    <string name="txt_new_title">名称</string>
+    <string name="txt_new_desc">描述</string>
+
+    <string name="txt_new_date">日期</string>
+    <string name="txt_new_time">时间</string>
+    <string name="txt_new_time_luna">农历</string>
+    <string name="txt_new_time_gregorian">公历</string>
+
+    <string name="txt_new_type">类型</string>
+    <string name="txt_new_type_multi">序列</string>
+    <string name="txt_new_type_single">单次</string>
+
+
+
+    <string name="error_msg_unknown_item">未知异常，请稍后重试。</string>
 
 </resources>

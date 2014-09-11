@@ -1,4 +1,4 @@
-package eternal.carl.com.eternally.activity;
+package eternal.carl.com.eternally.module.main;
 
 import android.content.Context;
 import android.view.LayoutInflater;
