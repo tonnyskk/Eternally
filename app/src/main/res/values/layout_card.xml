@@ -2,13 +2,21 @@
 <resources>
     <!-- dimen -->
     <dimen name="card_item_bg_border_radius">6dp</dimen>
-    <dimen name="card_item_image_margin">8dp</dimen>
+    <dimen name="card_item_image_margin">1dp</dimen>
     <dimen name="card_item_desc_margin_top">8dp</dimen>
+    <dimen name="card_item_title_padding">8dp</dimen>
+    <dimen name="card_item_title_time_padding">1dp</dimen>
+    <dimen name="card_item_desc_padding">8dp</dimen>
 
+
+
+    <dimen name="card_item_time_font_size">20sp</dimen>
     <dimen name="card_item_title_font_size">16sp</dimen>
     <dimen name="card_item_desc_font_size">13sp</dimen>
     <!-- color-->
     <color name="card_item_bg_color">#FFFFFFFF</color>
+    <color name="card_item_separator_color">#ffff7006</color>
+    <color name="card_item_desc_color">#ffffce23</color>
 
 
     <!-- font-->

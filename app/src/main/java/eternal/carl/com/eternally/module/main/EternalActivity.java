@@ -2,6 +2,8 @@ package eternal.carl.com.eternally.module.main;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.GridView;
@@ -24,7 +26,12 @@ public class EternalActivity extends BaseActivity {
     enum Keys {
         timerItemList
     }
+
     private GridView gridView = null;
+    private Handler tickHandler;
+    private static final int UPDATE_TIME = 0X1234;
+    private boolean isRunning = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +41,34 @@ public class EternalActivity extends BaseActivity {
         TimerCardAdapter adapter = new TimerCardAdapter(this);
         gridView.setAdapter(adapter);
 
+        tickHandler = new Handler() {
+            public void handleMessage(Message msg) {
+                switch (msg.what) {
+                    case UPDATE_TIME:
+                        updateGridTimer();
+                        break;
+                }
+                super.handleMessage(msg);
+            }
+        };
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    if (isRunning) {
+                        Message m = new Message();
+                        m.what = UPDATE_TIME;
+                        EternalActivity.this.tickHandler.sendMessage(m);
+                    }
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        break;
+                    }
+                }
+            }
+        }).start();
     }
 
     @Override
@@ -68,7 +103,7 @@ public class EternalActivity extends BaseActivity {
     public void onPostExecuteSuccessful(String action) {
         ArrayList<TimerItem> items = this.getIntent().getParcelableArrayListExtra(Keys.timerItemList.name());
         if (items != null) {
-            TimerCardAdapter adapter = (TimerCardAdapter)gridView.getAdapter();
+            TimerCardAdapter adapter = (TimerCardAdapter) gridView.getAdapter();
 
             if (adapter == null) {
                 adapter = new TimerCardAdapter(this);
@@ -84,9 +119,24 @@ public class EternalActivity extends BaseActivity {
     }
 
     @Override
-    public void onResume() {
+    protected void onResume() {
         super.onResume();
-
+        isRunning = true;
         this.postAsync(Actions.loadAllItems.name());
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        isRunning = false;
+    }
+
+    private void updateGridTimer() {
+        if (gridView != null) {
+            TimerCardAdapter adapter = (TimerCardAdapter) gridView.getAdapter();
+            if (adapter != null) {
+                adapter.notifyDataSetChanged();
+            }
+        }
     }
 }

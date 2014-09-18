@@ -145,7 +145,7 @@ public class NewTimerActivity extends BaseActivity implements DatePickerDialog.O
     }
 
     private String getFormatDate(int year, int month, int day) {
-        return year + "-" + format(month) + "-" + format(day);
+        return year + "-" + format(month + 1) + "-" + format(day);
     }
 
     private String getFormatTime(int hourOfDay, int minute) {

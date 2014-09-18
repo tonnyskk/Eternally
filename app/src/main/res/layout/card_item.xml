@@ -1,34 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@drawable/card_bg"
+              android:orientation="vertical">
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="@drawable/card_bg">
-
-    <ImageView
-        android:id="@+id/cardItem0Image"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_margin="@dimen/card_item_image_margin"
-        android:src="@drawable/ic_launcher" />
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/cardItem0Title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@id/cardItem0Image"
-        android:layout_toRightOf="@id/cardItem0Image"
-        android:text="@string/hello_world"
-        android:textSize="@dimen/card_item_title_font_size" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="@dimen/card_item_title_padding">
 
-    <TextView
-        android:id="@+id/cardItem0Desc"
-        android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/cardItem0Time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/hello_world"
+                android:textSize="@dimen/card_item_time_font_size"
+                android:textStyle="bold"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/card_item_title_time_padding"
+                android:background="@color/card_item_separator_color"/>
+
+            <TextView
+                android:id="@+id/cardItem0Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:text="@string/hello_world"
+                android:textSize="@dimen/card_item_title_font_size"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/cardItem0Image"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/card_item_image_margin"
+            android:src="@drawable/ic_launcher"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/cardItem0Title"
-        android:layout_marginTop="@dimen/card_item_desc_margin_top"
-        android:layout_toRightOf="@id/cardItem0Image"
-        android:text="@string/hello_world"
-        android:textSize="@dimen/card_item_desc_font_size" />
-</RelativeLayout>
+        android:padding="@dimen/card_item_desc_padding">
+
+        <TextView
+            android:id="@+id/cardItem0Desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/hello_world"
+            android:textSize="@dimen/card_item_desc_font_size"
+            android:textColor="@color/card_item_desc_color"/>
+    </LinearLayout>
+
+</LinearLayout>

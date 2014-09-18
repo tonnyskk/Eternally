@@ -7,4 +7,7 @@
     <dimen name="grid_item_horizon_spacing">5dp</dimen>
 
     <dimen name="grid_item_column_width">160dp</dimen>
+
+    <color name="TimerTxtColorFuture">#ffadff8f</color>
+    <color name="TimerTxtColorPast">#ffff7006</color>
 </resources>
